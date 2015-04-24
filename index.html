@@ -132,7 +132,7 @@
 					</div>
 				</section>
 
-				<section data-background="images/npm_bower.jpg">
+				<section>
 					<h3>Dependency Management Tools</h3>
 					<p>Downloads dependencies using Git, HTTPS, ZIP, npm</p>
 					<p>
@@ -143,8 +143,8 @@
 					</p>
 				</section>
 				<section data-background="#CD3732">
-					<section> <!-- data-background="images/npm.png" data-background-size="300px" -->
-						<h3>what is npm ?</h3>
+					<section>
+						<h3>NPM</h3>
 						<p>
 							<ul>
 								<li>Package manager for the web</li>
@@ -155,7 +155,7 @@
 					</section>
 					<section>
 						<h3>Install node.js</h3>
-							<p>convention: package.js</p>
+							<p>Filename: package.json</p>
 						<p>Download <a href="https://nodejs.org" target="_blank">node.js</a> and follow installation guide</p>
 					</section>
 
@@ -163,33 +163,35 @@
 						<script type="text/template">
 							## npm examples
 
-							```
-							  npm init
-							```
-
 							Find available package <a href="https://www.npmjs.com" target="_blank">Here</a>.
 
 							```
-							  npm install <package>
+							  > npm install <package>
 
 							  -g installs package globally
-							  npm install -g bower
+							  > npm install -g <package>
 
 							  use --save to save dependecy in package.json & -dev to lock package version 
-							  npm install gulp --save-dev
-
-							  npm install grunt
-
-							  npm install -g grunt-cli
-
-							  npm install -g yo
+							  > npm install <package> --save-dev
+							```
+							```
+							  > npm init
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample Package.json
+							
+							```
+							  > Sample file content here
 							```
 						</script>
 					</section>
 				</section>
 				<section data-background="#FFCC30">
 					<section> <!-- data-background="images/bower-logo.png" data-background-size="100" -->
-						<h3>What is Bower ?</h3>
+						<h3>Bower</h3>
 						<p>
 							<ul>
 								<li>Package manager for the web</li>
@@ -200,9 +202,13 @@
 					<section data-markdown>
 						<script type="text/template">
 							<h3>Install</h3>
-							<p>convention: bower.js</p>
+							<p>Filename: bower.json</p>
 							```
-								npm install -g bower
+								Install Globally
+								> npm install -g bower
+
+								Install in your project
+								> npm install bower
 							```
 						</script>
 					</section>
@@ -213,13 +219,18 @@
 							```
 								bower install <package>
 
-								bower install jquery
-
-								bower install angular
-
 								bower install git://github.com/user/package.git
 
 								bower install http://example.com/script.js
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample bower.json
+							
+							```
+							  > Sample file content here
 							```
 						</script>
 					</section>
@@ -228,7 +239,7 @@
 				<section data-background="#59ADBB">
 					<section data-markdown>
 						<script type="text/template">
-							<h3>Scaffolding Tool / Generators</h3>
+							<h3>Scaffolding Tool / Generator</h3>
 							<h4>Yemon (YO)</h4>
 							<p>
 								<ul>
@@ -242,16 +253,16 @@
 
 
 							```
-								npm install -g yo
+								Install YO globally
+								> npm install -g yo
 							```
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<h3>YO</h3>
 							<h3>examples</h3>
 							```
-							yo
+							> yo
 							[?] What would you like to do? 
 							›❯ Install a generator
 							Run the Angular generator (0.4.0) 
@@ -271,27 +282,26 @@
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<h3>YO</h3>
 							<h3>Custom generator</h3>
+							<p>Find available generators <a href="http://yeoman.io/generators/" target="_blank" style="color: #fff;">Here</a>.</p>
 							```
-							npm install generator-bootstrap -g
-							yo bootstrap
+							> npm install generator-bootstrap -g
+							> yo bootstrap
 
-							npm install generator-webapp -g
-							yo webapp
+							> npm install generator-webapp -g
+							> yo webapp
 							```
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<h3>YO</h3>
 							<h3>Generate enterprise app using Angular</h3>
 							```
-							npm install generator-angular -g
-							yo angular
-							yo angular:view user
-							yo angular:controller user
-							yo angular:directive mydirective
+							> npm install generator-angular -g
+							> yo angular
+							> yo angular:view user
+							> yo angular:controller user
+							> yo angular:directive mydirective
 							```
 						</script>
 					</section>
@@ -323,15 +333,15 @@
 					<section data-markdown>
 						<script type="text/template">
 							<h3>Install Gulp</h3>
-							<p>convention: gulpfile.js</p>
+							<p>Filename: gulpfile.js</p>
 							```
 							Install Gulp in your project
-							npm install gulp --save
+							> npm install gulp --save
   
 							```
 							```
 							Install Gulp Globaly
-							npm install -g gulp
+							> npm install -g gulp
   
 							```
 						</script>
@@ -423,6 +433,15 @@
 							```
 						</script>
 					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample gulpfile.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
+					</section>
 				</section>
 				<section data-background="#FBA918">
 					<section>
@@ -452,15 +471,15 @@
 					<section data-markdown>
 						<script type="text/template">
 							<h3>Install Grunt</h3>
-							<p>convention: Gruntfile.js</p>
+							<p>Filename: gruntfile.js</p>
 							```
 							Install Grunt in your project
-							npm install grunt --save
+							> npm install grunt --save
   
 							```
 							```
 							Install Grunt-cli / Global install of Grunt command line
-							npm install -g grunt-cli
+							> npm install -g grunt-cli
   
 							```
 						</script>
@@ -483,6 +502,16 @@
 
 };
   
+							```
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							## Sample gruntfile.js
+							
+							```
+							  > Sample file content here
 							```
 						</script>
 					</section>
@@ -511,15 +540,25 @@
 					<section data-markdown>
 						<script type="text/template">
 							<h3>Install Brunch</h3>
-							<p>convention: brunch-config.js</p>
+							<p>Filename: brunch-config.js</p>
 							```
-							npm install -g brunch
+							> npm install -g brunch
   
 							```
 						</script>
 					</section>
 					<section>
 						<h3>Brunch example</h3>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							## Sample brunch-config.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
 					</section>
 				</section>
 				<section data-background="#5A8527">
@@ -544,21 +583,30 @@
 					<section data-markdown>
 						<script type="text/template">
 							<h3>Install Broccoli</h3>
-							<p>convention: Brocfile.js</p>
+							<p>Filename: brocfile.js</p>
 							```
 							Install Broccoli globaly
-							npm install --g broccoli-cli
+							> npm install --g broccoli-cli
   
 							```
 							```
 							Install Broccoli in your project
-							npm install --save-dev broccoli
+							> npm install --save-dev broccoli
   
 							```
 						</script>
 					</section>
 					<section>
 						<h3>Broccoli example</h3>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample brocfile.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
 					</section>
 				</section>
 				<section>
@@ -589,11 +637,11 @@
 							<h3>Install Jasmine</h3>
 							```
 							Install jasmine globaly
-							npm install -g jasmine
+							> npm install -g jasmine
 
 							Install jasmine plugin for Grunt/Gulp
-							npm i grunt-jasmine-runner --save-dev
-							npm install gulp-jasmine --save-dev
+							> npm i grunt-jasmine-runner --save-dev
+							> npm install gulp-jasmine --save-dev
 
 							```
 						</script>
@@ -622,7 +670,7 @@ gulp.task('default', function () {
     return gulp.src('spec/test.js')
         .pipe(jasmine());
 });
-
+> gulp
 							```
 						</script>
 					</section>
@@ -662,14 +710,14 @@ gulp.task('default', function () {
 							<h3>Install Karma</h3>
 							```
 							Install Karma command line tool globaly
-							npm install -g karma-cli
+							> npm install -g karma-cli
 
 							Install Karma in project
-							npm install karma --save-dev
+							> npm install karma --save-dev
 
 							```
 							```
-							karma init
+							> karma init
 
 							```
 						</script>
@@ -704,23 +752,34 @@ gulp.task('default', function () {
 				</section>
 
 				<section>
+					<section>
+						<h3>Istanbul</h3>
+						<ul>
+							<li>Instrument your source code</li>
+							<li>Run your test suite against your instrumented source code</li>
+							<li>Store your coverage results</li>
+							<li>Allows you to generate coverage report</li>
+							<li>HTML and LCOV reporting</li>
+						</ul>
+					</section>
 					<section data-markdown>
 						<script type="text/template">
-							<h3>Istanbul</h3>
-							<ul>
-								<li>Instrument your source code</li>
-								<li>Run your test suite against your instrumented source code</li>
-								<li>Store your coverage results</li>
-								<li>Allows you to generate coverage report</li>
-								<li>HTML and LCOV reporting</li>
-							</ul>
 							<h3>Install</h3>
 							```
-							npm install istanbul
+							> npm install istanbul
 
-							npm install grunt-istanbul --save-dev
+							> npm install grunt-istanbul --save-dev
 
-							npm install --save-dev gulp-istanbul
+							> npm install gulp-istanbul --save-dev 
+
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Example</h3>
+							```
+							> sample
 
 							```
 						</script>
@@ -737,15 +796,7 @@ gulp.task('default', function () {
 							<li>Extension for all browsers</li>
 							<li>Every action is asynchronous.</li>
 							<li>Rapid development.</li>
-							<li>Allows to test your app the end user will use it.</li>
-						</ul>
-					</section>
-					<section>
-						<h3>Protractor Pitfalls</h3>
-						<ul>
-							<li>Test code can be  difficult to maintain.</li>
-							<li>Makes Jasmine and the Selenium JS WebDriver features available</li>
-							<li>Every action is asynchronous.</li>
+							<li>Allows to test your app the way end user will use it.</li>
 						</ul>
 					</section>
 					<section data-markdown>
@@ -753,20 +804,20 @@ gulp.task('default', function () {
 							<h3>Install Protractor</h3>
 							```
 							Install protractor globally
-							npm install protractor -g
+							> npm install protractor -g
 
 							Install protractor in your project using Grunt
-							npm i grunt-protractor-runner --save-dev
+							> npm i grunt-protractor-runner --save-dev
 
 							Install protractor in your project using Gulp
-							npm install gulp-protractor --save-dev
+							> npm install gulp-protractor --save-dev
 
-							Scaffolding is available through Yo as well
+							Scaffolding is available through YO as well
 							> npm install -g generator-protractor
 > yo protractor 
 
-							
-							webdriver-manager update
+							Update WebDriver
+							> webdriver-manager update
 							```
 						</script>
 					</section>
@@ -817,11 +868,11 @@ it('should have a history', function() {
 });
 							```
 
-							<h6>Kickoff e2e Test</h6>
+							<h6>Execute e2e Test</h6>
 							```
-							webdriver-manager start
+							> webdriver-manager start
 
-							protractor <path to conf file>
+							> protractor <path to conf file>
 							```
 						</script>
 					</section>
@@ -869,10 +920,10 @@ it('should have a history', function() {
 				<section>
 					<h3>Choosing workflow automation tool</h3>
 					<ul>
-						<li>If you need tons of plugins, stick with Grunt or Gulp</li>
+						<!-- <li>If you need tons of plugins, stick with Grunt or Gulp</li>
 						<li>If you need utter speed, go with Gulp</li>
 						<li>If you want conventions, go with Brunch</li>
-						<li>If you're an Ember fan, go with Broccoli (tied into Ember CLI)</li>
+						<li>If you're an Ember fan, go with Broccoli (tied into Ember CLI)</li> -->
 						<li>No tool is wrong, just different approaches</li>
 						<li>Each tool has strengths and weaknesses.</li>
 						<li>Your job will be to identify which tool may be best suited for your needs.</li>
@@ -900,33 +951,7 @@ it('should have a history', function() {
 				</section>
 
 				<section style="text-align: left;">
-					<h1>Questions ?</h1>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
+					<h1>Questions ? <small><a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small></h1>
 				</section>
 
 			</div>
