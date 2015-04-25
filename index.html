@@ -496,7 +496,229 @@
 							## Sample gulpfile.js
 							
 							```
-							  > Sample file content here
+							'use strict';
+
+var gulp = require('gulp'),
+gutil = require('gulp-util'),
+del = require('del'),
+jshint = require('gulp-jshint'),
+ngAnnotate = require('gulp-ng-annotate'),
+concat = require('gulp-concat'),
+sourcemaps = require('gulp-sourcemaps'),
+uglify = require('gulp-uglify'),
+concatCss = require('gulp-concat-css'),
+minifyCSS = require('gulp-minify-css'),
+imagemin = require('gulp-imagemin'),
+minifyHtml = require('gulp-minify-html'),
+templateCache = require('gulp-angular-templatecache'),
+inject = require('gulp-inject'),
+arialinter = require('gulp-arialinter'),
+jasmine = require('gulp-jasmine'),
+protractor = require("gulp-protractor").protractor,
+webdriver_standalone = require("gulp-protractor").webdriver_standalone,
+header = require('gulp-header'),
+connect = require('gulp-connect'),
+open = require('gulp-open');
+var port = 8001;
+//serve = require('gulp-serve');
+
+var paths = {
+
+	dist: 'dist',
+		  
+	jsSource: ['src/scripts/*.js'],
+  
+	styleSource: ['src/css/main.css'],
+  
+	imagesSource: ['src/images/**/*.*'],
+
+	htmlSource: ['src/views/**/*.html'],
+	unitTestSource: ['test/unit/**/*.js'],
+	e2eSource: ['test/e2e/*.js'],
+
+	vendorScripts: [
+	         'node_modules/jquery/dist/jquery.min.js',
+	         'node_modules/bootstrap/dist/js/bootstrap.min.js',
+	         'node_modules/underscore/underscore-min.js',
+	         'node_modules/angular/angular.min.js',
+	         'node_modules/angular-resource/angular-resource.min.js',
+	         'node_modules/angular-animate/angular-animate.min.js',
+	         'node_modules/angular-messages/angular-messages.min.js',
+	         'node_modules/angular-sanitize/angular-sanitize.min.js',
+	         'node_modules/angular-aria/angular-aria.min.js'
+    ],
+    
+    vendorStyles: [
+   	         'node_modules/bootstrap/dist/css/bootstrap.min.css',
+   	         'node_modules/bootstrap/font-awesome/css/font-awesome.min.css'
+   	]
+};
+
+gulp.task('clean', function (cb) {
+	del(paths.dist, cb);
+});
+
+gulp.task('vendorScripts', function() {
+
+	return gulp.src(paths.vendorScripts)
+		    .pipe(concat('scripts/vendor/vendor.js.gzip'))
+		    .pipe(uglify({compress : true}))
+		    .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('vendorStyles', function() {
+
+	return gulp.src(paths.vendorStyles)
+		    .pipe(concatCss('css/vendor/vendor.css'))
+		    .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('lint', function() {
+	return gulp.src(paths.jsSource)
+			.pipe(jshint())
+			.pipe(jshint.reporter('default'));
+});
+
+gulp.task('buildScript', function() {
+
+	return gulp.src(paths.jsSource)
+			.pipe(ngAnnotate({remove: true, add: true, single_quotes: true}))
+			.pipe(concat('scripts/app.js'))
+			.pipe(header('/** Copyright '+new Date().getFullYear()+' Author: Mayank Patel **/ \n'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('minifyScript', ['buildScript'], function() {
+	
+	return gulp.src('dist/scripts/app.js')
+			.pipe(concat('scripts/app.min.js'))
+			.pipe(sourcemaps.init())
+			.pipe(uglify())
+			.pipe(sourcemaps.write('/'))
+			.pipe(gulp.dest('dist'));
+});
+
+gulp.task('compressScript', ['minifyScript'], function() {
+	
+	return gulp.src('dist/scripts/app.min.js')
+			.pipe(concat('scripts/app.min.js.gzip'))
+			.pipe(uglify({compress : true}))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('scripts', ['lint', 'compressScript'], function() {
+
+});
+
+
+gulp.task('buildStyles', function() {
+	return gulp.src(paths.styleSource)
+			.pipe(concat('css/main.css'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+
+gulp.task('minifyStyles', ['buildStyles'], function() {
+
+	return gulp.src('dist/css/main.css')
+			.pipe(concat('css/main.min.css'))
+			.pipe(sourcemaps.init())
+			.pipe(minifyCSS())
+			.pipe(sourcemaps.write('/'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('compressStyles', ['minifyStyles'], function() {
+
+	return gulp.src('dist/css/main.min.css')
+			.pipe(concat('css/main.min.css.gzip'))
+			.pipe(uglify({compress : true}))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('styles', ['minifyStyles'], function() {
+});
+
+gulp.task('images', function() {
+    return gulp.src(paths.imagesSource)
+        .pipe(imagemin({progressive: true, optimizationLevel: 5, interlaced: true}))
+        .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('views', function() {
+		  
+    gulp.src(paths.htmlSource)
+		.pipe(arialinter({ level: 'AA' }))
+        .pipe(templateCache({ module: 'blog', root: 'src/views' }))
+        .pipe(gulp.dest('dist/scripts'));
+	
+	gulp.src('src/index.html')
+		.pipe(arialinter({ level: 'AA' }))
+    	//.pipe(minifyHtml({ conditionals: true, spare:true }))
+    	.pipe(gulp.dest('dist'));
+
+    gulp.src(['src/views/**/*']).pipe(minifyHtml()).pipe(gulp.dest('dist/views'));
+});
+
+gulp.task('build', ['vendorScripts', 'vendorStyles', 'scripts', 'styles', 'images', 'views'], function() {
+});
+
+gulp.task('test', function() {
+	
+	//gulp.src(paths.unitTestSource)
+	//.pipe(jasmine({reporter: new reporters.JUnitXmlReporter()}));
+});
+
+gulp.task('connect', function () {
+  connect.server({
+    root: 'dist',
+    port: port,
+    livereload: true,
+    // https: true,
+    // middleware: function(connect, opt) {
+    //   return [
+    //     // ... 
+    //   ]
+    // }
+  });
+});
+
+gulp.task('open', function(){
+  var options = {
+    url: 'http://localhost:' + port,
+    //app: 'Google Chrome'
+    app: 'Google Chrome Canary'
+    // app: 'Firefox'
+    // app: 'Safary'
+  };
+  gulp.src('./dist/index.html')
+  .pipe(open('', options));
+});
+
+gulp.task('serve', ['connect', 'open']);
+
+gulp.task('e2eTest', function() {
+	
+	gulp.task('webdriver_standalone', webdriver_standalone)
+	
+	gulp.src(paths.e2eSource)
+	    .pipe(protractor({
+	        configFile: "test/protractor.conf.js",
+	        args: ['--baseUrl', 'http://localhost:8001/dist/index.html']
+	    })) 
+	    .on('error', function(e) { throw e })
+});
+
+gulp.task('watch', function() {
+	gulp.watch(paths.jsSource, ['scripts']);
+	gulp.watch(paths.imagesSource, ['images']);
+	gulp.watch(paths.styleSource, ['styles']);
+	gulp.watch(paths.htmlSource, ['views']);
+});
+
+gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
+
+
 							```
 						</script>
 					</section>
