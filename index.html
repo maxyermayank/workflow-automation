@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Workflow Automation for Web Applications</title>
+
+		<meta name="description" content="Workflow Automation for Web Applications">
+		<meta name="author" content="Mayank Patel">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style type="text/css">
+		li {
+			font-size: 26px !important;
+		}
+		</style>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Workflow Automation for web applications</h2>
+					<p>
+						<small>Created by <a href="http://maxyermayank.github.io">Mayank Patel</a> / <a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h3>Why workflow automation?</h3>
+					<table>
+						<tr>
+							<td width="50%">
+								<ul>
+									<li>Boilerplate</li>
+									<li>Dependency management</li>
+									<li>Framework</li>
+									<li>Abstrations</li>
+									<li>Build</li>
+									<li>Automation test</li>
+								</ul>
+							</td>
+							<td width="50%">
+								<ul>
+									<li>Docs</li>
+									<li>Continuous integration</li>
+									<li>Deployment</li>
+									<li>Performance optimization</li>
+									<li>Workflow</li>
+									<li>Deployment</li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h3>Work Flow</h3>
+					<div>
+						<table>
+							<tr>
+								<td>
+									<center><h4>Setup</h4></center>
+									<ul>
+										<li>Download dependecies</li>
+										<li>Download frameworks</li>
+										<li>Download libraries</li>
+										<li>Scaffolding</li>
+									</ul>
+								</td>
+								<td>
+									<center><h4>Develop</h4></center>
+									<ul>
+										<li>Non minified</li>
+										<li>Linting (HTML, JS)</li>
+										<li>Seperated files</li>
+										<li>Generate responsive images</li>
+										<li>Optimize images</li>
+										<li>Compilation (CoffeScript, SASS, LESS..)</li>
+										<li>Test configuration</li>
+										<li>Unit testing & e2e testing</li>
+										<li>Generate test report</li>
+										<li>Watchers</li>
+										<li>Live reload</li>
+									</ul>
+								</td>
+								<td>
+									<center><h4>Build</h4></center>
+									<ul>
+										<li>Annotate (JS)</li>
+										<li>Generate copyright and license information</li>
+										<li>Sourcemap (JS, CSS)</li>
+										<li>Concatenation (JS, CSS)</li>
+										<li>Minification (HTML, JS, CSS)</li>
+										<li>Uglification (HTML, JS, CSS)</li>
+										<li>Compress (JS, CSS)</li>
+										<li>Live configuration</li>
+										<li>Compiled</li>
+										<li>Renamed</li>
+										<li>Cache templates (HTML)</li>
+										<li>Inject resources in Template</li>
+										<li>Optimize performance</li>
+										<li>Deployment setup</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</section>
+
+				<section>
+					<h3>Dependency Management Tools</h3>
+					<p>Downloads dependencies using Git, HTTPS, ZIP, npm</p>
+					<p>
+						<ul>
+							<li>npm</li>
+							<li>Bower</li>
+						</ul>
+					</p>
+				</section>
+				<section data-background="#CD3732">
+					<section>
+						<h3>NPM</h3>
+						<p>
+							<ul>
+								<li>Package manager for the web</li>
+								<li>Comes with node.js</li>
+								<li>Default for node.js modules</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h3>Install node.js</h3>
+							<p>Filename: package.json</p>
+						<p>Download <a href="https://nodejs.org" target="_blank">node.js</a> and follow installation guide</p>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							## npm examples
+
+							Find available package <a href="https://www.npmjs.com" target="_blank">Here</a>.
+
+							```
+							  > npm install <package>
+
+							  -g installs package globally
+							  > npm install -g <package>
+
+							  use --save to save dependecy in package.json & -dev to lock package version 
+							  > npm install <package> --save-dev
+							```
+							```
+							  > npm init
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample Package.json
+							
+							```
+							{
+    "name": "project-name",
+    "version": "1.0.0",
+    "description": "Description goes here",
+    "main": "index.html",
+    "scripts": {
+        "test": "gulp e2e"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://example.com/project-name"
+    },
+    "author": "Mayank Patel <maxy.ermayank@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://example.com/project-name/issues"
+    },
+    "homepage": "https://example.com/project-name",
+    "dependencies": {},
+    "devDependencies": {
+        "angular": "^1.3.15",
+        "gulp": "^3.8.5",
+        "gulp-connect": "^2.0.5",
+        "gulp-shell": "^0.2.9",
+        "karma": "^0.12.21",
+        "karma-chrome-launcher": "^0.1.4",
+        "karma-jasmine": "^0.1.5",
+        "karma-requirejs": "^0.2.2",
+        "lodash": "^2.4.1",
+        "protractor": "^1.0.0",
+        "requirejs": "^2.1.14"
+    },
+    "engines": {
+    	"node": ">=0.8.0"
+    },
+    "keywords": [
+        "gruntplugin"
+    ],
+}
+							```
+						</script>
+					</section>
+				</section>
+				<section data-background="#FFCC30">
+					<section> <!-- data-background="images/bower-logo.png" data-background-size="100" -->
+						<h3>Bower</h3>
+						<p>
+							<ul>
+								<li>Package manager for the web</li>
+								<li>Designed solely for web and it is optimized with that in mind.</li>
+							</ul>
+						</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install</h3>
+							<p>Filename: bower.json</p>
+							```
+								Install Globally
+								> npm install -g bower
+
+								Install in your project
+								> npm install bower
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Examples</h3>
+							<p>Packages available <a href="http://bower.io/search/" target="_blank">Here</a></p>
+							```
+								bower install <package>
+
+								bower install git://github.com/user/package.git
+
+								bower install http://example.com/script.js
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample bower.json
+							
+							```
+							{
+  "name": "project-name",
+  "version": "1.0.0",
+  "author": "Mayank Patel <maxy.ermayank@gmail.com>",
+  "homepage": "https://example.com/project-name",
+  "description": "Description goes here",
+  "main": "index.html",
+  "license": "apache 2",
+  "dependencies": {
+    "angular": "1.3.15",
+    "json3": "~3.2.4",
+    "es5-shim": "~2.0.8",
+    "angular-resource": "1.3.15",
+    "d3": "3.3.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.2.0-rc.1",
+    "angular-scenario": "1.2.0-rc.1"
+  }
+}
+
+							```
+						</script>
+					</section>
+				</section>
+
+				<section data-background="#59ADBB">
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Scaffolding Tool / Generator</h3>
+							<h4>Yemon (YO)</h4>
+							<p>
+								<ul>
+									<li>Scaffolds out boilerplate</li>
+									<li>Abstraction</li>
+									<li>Performance optimization</li>
+									<li>Testing and Build process</li>
+									<li>Custom generators are available</li>
+								</ul>
+							</p>
+
+
+							```
+								Install YO globally
+								> npm install -g yo
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>examples</h3>
+							```
+							> yo
+							[?] What would you like to do? 
+							›❯ Install a generator
+							Run the Angular generator (0.4.0) 
+							Run the Backbone generator (0.1.9) 
+							Run the Blog generator (0.0.0)
+							Run the jQuery generator (0.1.4) 
+							Run the Gruntfile generator (0.0.6)
+							(Move up and down to reveal more choices)
+							```
+
+
+							```
+							yo jquery-boilerplate
+							Boom. You just created a jQuery plugin.
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Custom generator</h3>
+							<p>Find available generators <a href="http://yeoman.io/generators/" target="_blank" style="color: #fff;">Here</a>.</p>
+							```
+							> npm install generator-bootstrap -g
+							> yo bootstrap
+
+							> npm install generator-webapp -g
+							> yo webapp
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Generate enterprise app using Angular</h3>
+							```
+							> npm install generator-angular -g
+							> yo angular
+							> yo angular:view user
+							> yo angular:controller user
+							> yo angular:directive mydirective
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Example of nested vertical slides -->
+				<section data-background="#CF4645">
+					<section>
+						<h3>Gulp Strength</h3>
+						<ul>
+							<li>Mature: ~ Aug 2013, relatively mature</li>
+							<li>Community Support: New kid in town, Picking up popularity</li>
+							<li>Code over configuration</li>
+							<li>Easy to read & use</li>
+							<li>Tons of plugins available</li>
+							<li>Provides node streams - no need for tmp files/folders</li>
+							<li>Plugins do ONE thing</li>
+							<li>Provides plugin to run Grunt tasks</li>
+							<li>Only has 5 functions to learn!</li>
+							<li>Runs with maximum concurrency by default</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Gulp Weeknesses</h3>
+						<ul>
+							<li>Can be daunting to learn streams</li>
+							<li>Sometimes setting up src/dest can be tricky (use base)</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Gulp</h3>
+							<p>Filename: gulpfile.js</p>
+							```
+							Install Gulp in your project
+							> npm install gulp --save
+  
+							```
+							```
+							Install Gulp Globaly
+							> npm install -g gulp
+  
+							```
+						</script>
+					</section>
+					<section>
+						<h3>The gulp api</h3>
+						<ul>
+							<li>gulp.task(name[, deps], fn)</li>
+							<li>gulp.src(globs)</li>
+							<li>gulp.dest(path)</li>
+							<li>gulp.watch(glob[, opts], tasks)</li>
+							<li>gulp.run(tasks...)</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>gulp.task(name[, deps], fn)</h3>
+							```
+							gulp.task('somename', function() {
+// Do stuff
+});
+							```
+							```
+							gulp.task('build', ['somename', 'test'];
+							```
+							```
+							> gulp build
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>gulp.src(globs)</h3>
+							```
+							gulp.src('client/templates/*.jade')
+      .pipe(jade())
+							```
+							```
+							gulp.src(['src/**/*.js', 'test/spec/**/*.js'])
+    .pipe(jshint())
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>gulp.dest(path)</h3>
+							```
+							gulp.src('./client/templates/*.jade')
+      .pipe(jade())
+      .pipe(gulp.dest('./build/templates'))
+      .pipe(minify())
+      .pipe(gulp.dest('./build/minified_templates'));
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>gulp.watch(glob[, opts], tasks)</h3>
+							```
+							gulp.watch('app/**/*.js', ['test','reload']);
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>gulp.run(tasks...)</h3>
+							```
+							gulp.task('hello-world', function () {
+  run('echo Hello World').exec()  // prints "[echo] Hello World\n".
+    .pipe(gulp.dest('build'))    // Writes "Hello World\n" to output/echo.
+})
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Streams</h3>
+							```
+							gulp.task('scripts', function () {
+      return gulp.src('src/app/**/*.js') // <-- read from filesystem
+        // In memory transform
+        .pipe(jshint('.jshintrc'))    // <-- lint the code
+        .pipe(concat('app.min.js'))   // <-- concatenate to one file
+        .pipe(uglify())               // <-- minify the file
+        .pipe(rev())                  // <-- add revision to filename
+        .pipe(gulp.dest('dist/app')); // <-- write to filesystem
+    });
+  
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample gulpfile.js
+							
+							```
+							'use strict';
+
+var gulp = require('gulp'),
+gutil = require('gulp-util'),
+del = require('del'),
+jshint = require('gulp-jshint'),
+ngAnnotate = require('gulp-ng-annotate'),
+concat = require('gulp-concat'),
+sourcemaps = require('gulp-sourcemaps'),
+uglify = require('gulp-uglify'),
+concatCss = require('gulp-concat-css'),
+minifyCSS = require('gulp-minify-css'),
+imagemin = require('gulp-imagemin'),
+minifyHtml = require('gulp-minify-html'),
+templateCache = require('gulp-angular-templatecache'),
+inject = require('gulp-inject'),
+arialinter = require('gulp-arialinter'),
+jasmine = require('gulp-jasmine'),
+protractor = require("gulp-protractor").protractor,
+webdriver_standalone = require("gulp-protractor").webdriver_standalone,
+header = require('gulp-header'),
+connect = require('gulp-connect'),
+open = require('gulp-open');
+var port = 8001;
+//serve = require('gulp-serve');
+
+var paths = {
+
+	dist: 'dist',
+		  
+	jsSource: ['src/scripts/*.js'],
+  
+	styleSource: ['src/css/main.css'],
+  
+	imagesSource: ['src/images/**/*.*'],
+
+	htmlSource: ['src/views/**/*.html'],
+	unitTestSource: ['test/unit/**/*.js'],
+	e2eSource: ['test/e2e/*.js'],
+
+	vendorScripts: [
+	         'node_modules/jquery/dist/jquery.min.js',
+	         'node_modules/bootstrap/dist/js/bootstrap.min.js',
+	         'node_modules/underscore/underscore-min.js',
+	         'node_modules/angular/angular.min.js',
+	         'node_modules/angular-resource/angular-resource.min.js',
+	         'node_modules/angular-animate/angular-animate.min.js',
+	         'node_modules/angular-messages/angular-messages.min.js',
+	         'node_modules/angular-sanitize/angular-sanitize.min.js',
+	         'node_modules/angular-aria/angular-aria.min.js'
+    ],
+    
+    vendorStyles: [
+   	         'node_modules/bootstrap/dist/css/bootstrap.min.css',
+   	         'node_modules/bootstrap/font-awesome/css/font-awesome.min.css'
+   	]
+};
+
+gulp.task('clean', function (cb) {
+	del(paths.dist, cb);
+});
+
+gulp.task('vendorScripts', function() {
+
+	return gulp.src(paths.vendorScripts)
+		    .pipe(concat('scripts/vendor/vendor.js.gzip'))
+		    .pipe(uglify({compress : true}))
+		    .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('vendorStyles', function() {
+
+	return gulp.src(paths.vendorStyles)
+		    .pipe(concatCss('css/vendor/vendor.css'))
+		    .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('lint', function() {
+	return gulp.src(paths.jsSource)
+			.pipe(jshint())
+			.pipe(jshint.reporter('default'));
+});
+
+gulp.task('buildScript', function() {
+
+	return gulp.src(paths.jsSource)
+			.pipe(ngAnnotate({remove: true, add: true, single_quotes: true}))
+			.pipe(concat('scripts/app.js'))
+			.pipe(header('/** Copyright '+new Date().getFullYear()+' Author: Mayank Patel **/ \n'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('minifyScript', ['buildScript'], function() {
+	
+	return gulp.src('dist/scripts/app.js')
+			.pipe(concat('scripts/app.min.js'))
+			.pipe(sourcemaps.init())
+			.pipe(uglify())
+			.pipe(sourcemaps.write('/'))
+			.pipe(gulp.dest('dist'));
+});
+
+gulp.task('compressScript', ['minifyScript'], function() {
+	
+	return gulp.src('dist/scripts/app.min.js')
+			.pipe(concat('scripts/app.min.js.gzip'))
+			.pipe(uglify({compress : true}))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('scripts', ['lint', 'compressScript'], function() {
+
+});
+
+
+gulp.task('buildStyles', function() {
+	return gulp.src(paths.styleSource)
+			.pipe(concat('css/main.css'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+
+gulp.task('minifyStyles', ['buildStyles'], function() {
+
+	return gulp.src('dist/css/main.css')
+			.pipe(concat('css/main.min.css'))
+			.pipe(sourcemaps.init())
+			.pipe(minifyCSS())
+			.pipe(sourcemaps.write('/'))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('compressStyles', ['minifyStyles'], function() {
+
+	return gulp.src('dist/css/main.min.css')
+			.pipe(concat('css/main.min.css.gzip'))
+			.pipe(uglify({compress : true}))
+			.pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('styles', ['minifyStyles'], function() {
+});
+
+gulp.task('images', function() {
+    return gulp.src(paths.imagesSource)
+        .pipe(imagemin({progressive: true, optimizationLevel: 5, interlaced: true}))
+        .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('views', function() {
+		  
+    gulp.src(paths.htmlSource)
+		.pipe(arialinter({ level: 'AA' }))
+        .pipe(templateCache({ module: 'blog', root: 'src/views' }))
+        .pipe(gulp.dest('dist/scripts'));
+	
+	gulp.src('src/index.html')
+		.pipe(arialinter({ level: 'AA' }))
+    	//.pipe(minifyHtml({ conditionals: true, spare:true }))
+    	.pipe(gulp.dest('dist'));
+
+    gulp.src(['src/views/**/*']).pipe(minifyHtml()).pipe(gulp.dest('dist/views'));
+});
+
+gulp.task('build', ['vendorScripts', 'vendorStyles', 'scripts', 'styles', 'images', 'views'], function() {
+});
+
+gulp.task('test', function() {
+	
+	//gulp.src(paths.unitTestSource)
+	//.pipe(jasmine({reporter: new reporters.JUnitXmlReporter()}));
+});
+
+gulp.task('connect', function () {
+  connect.server({
+    root: 'dist',
+    port: port,
+    livereload: true,
+    // https: true,
+    // middleware: function(connect, opt) {
+    //   return [
+    //     // ... 
+    //   ]
+    // }
+  });
+});
+
+gulp.task('open', function(){
+  var options = {
+    url: 'http://localhost:' + port,
+    //app: 'Google Chrome'
+    app: 'Google Chrome Canary'
+    // app: 'Firefox'
+    // app: 'Safary'
+  };
+  gulp.src('./dist/index.html')
+  .pipe(open('', options));
+});
+
+gulp.task('serve', ['connect', 'open']);
+
+gulp.task('e2eTest', function() {
+	
+	gulp.task('webdriver_standalone', webdriver_standalone)
+	
+	gulp.src(paths.e2eSource)
+	    .pipe(protractor({
+	        configFile: "test/protractor.conf.js",
+	        args: ['--baseUrl', 'http://localhost:8001/dist/index.html']
+	    })) 
+	    .on('error', function(e) { throw e })
+});
+
+gulp.task('watch', function() {
+	gulp.watch(paths.jsSource, ['scripts']);
+	gulp.watch(paths.imagesSource, ['images']);
+	gulp.watch(paths.styleSource, ['styles']);
+	gulp.watch(paths.htmlSource, ['views']);
+});
+
+gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
+
+
+							```
+						</script>
+					</section>
+				</section>
+				<section data-background="#FBA918">
+					<section>
+						<h3>Grunt Strength</h3>
+						<ul>
+							<li>Mature: Mar 2012, very mature</li>
+							<li>Community Support: Most Popular</li>
+							<li>Configuration over code</li>
+							<li>Based on files</li>
+							<li>Tons of plugins available</li>
+							<li>Flexibility</li>
+							<li>Scaffolding is available through generators</li>
+							<li>Provides plugin to run Gulp tasks</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Grunt Weeknesses</h3>
+						<ul>
+							<li>Plugins do multiple things</li>
+							<li>Headache of temp files/folders</li>
+							<li>Not one solid control flow</li>
+							<li>Configuration can get lengthy - 500+ lines / Hard to read</li>
+							<li>Very lengthy & vast API</li>
+							<li>Can get pretty slow when tasks increase</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Grunt</h3>
+							<p>Filename: gruntfile.js</p>
+							```
+							Install Grunt in your project
+							> npm install grunt --save
+  
+							```
+							```
+							Install Grunt-cli / Global install of Grunt command line
+							> npm install -g grunt-cli
+  
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Structure</h3>
+							```
+							module.exports = function(grunt) {
+
+  grunt.initConfig({
+    // Configuration des tâches
+  });
+
+  // Enregistrement d'une tâche
+  grunt.registerTask(taskName, [description, ] taskFunction)
+
+  // Chargement d'un plugin
+  grunt.loadNpmTasks('package');
+
+};
+  
+							```
+						</script>
+					</section>
+
+					<!-- <section data-markdown>
+						<script type="text/template">
+							## Sample gruntfile.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
+					</section> -->
+				</section>
+				<section data-background="#3F894A">
+					<section>
+						<h3>Brunch</h3>
+						<ul>
+							<li>Mature: Jan 2011, very mature</li>
+							<li>Community Support: fairly new, plenty of plugins & skeletons</li>
+							<li>Easy to set up - use skeleton</li>
+							<li>Introduces conventions for you</li>
+							<li>Simple CLI - only a few commands</li>
+							<li>Commands for dev/staging/production releases</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Brunch Weeknesses</h3>
+						<ul>
+							<li>Not using conventions causes headaches</li>
+							<li>Not easy to set up with existing projects</li>
+							<li>Skeleton set ups not maintained as fast as plugins</li>
+							<li>Not as supported as Grunt/Gulp</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Brunch</h3>
+							<p>Filename: brunch-config.js</p>
+							```
+							> npm install -g brunch
+  
+							```
+						</script>
+					</section>
+					<!-- <section>
+						<h3>Brunch example</h3>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
+							## Sample brunch-config.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
+					</section> -->
+				</section>
+				<section data-background="#5A8527">
+					<section>
+						<h3>Broccoli</h3>
+						<p>Mainly focused on Ember.js apps, and ships with Ember CLI</p>
+						<ul>
+							<li>Mature: Feb 2014, still in beta</li>
+							<li>Community Support: in Beta</li>
+							<li>Trees allow dev to think of assets</li>
+							<li>Provides caching for map files</li>
+							<li>Makes some conventions for you - assets</li>
+							<li>Watching files handled by serve, only rebuilds whats needed</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Broccoli Weeknesses</h3>
+						<ul>
+							<li>No parallelism</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Broccoli</h3>
+							<p>Filename: brocfile.js</p>
+							```
+							Install Broccoli globaly
+							> npm install --g broccoli-cli
+  
+							```
+							```
+							Install Broccoli in your project
+							> npm install --save-dev broccoli
+  
+							```
+						</script>
+					</section>
+					<!-- <section>
+						<h3>Broccoli example</h3>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Sample brocfile.js
+							
+							```
+							  > Sample file content here
+							```
+						</script>
+					</section> -->
+				</section>
+				<section>
+					<h3>Test Frameworks</h3>
+					<ul>
+						<li>Jasmine</li>
+						<li>Karma</li>
+						<li>Istanbul</li>
+						<li>Protractor</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h3>Jasmine</h3>
+						<ul>
+							<li>Started in 2010</li>
+							<li>Huge community - Most popular</li>
+							<li>Behavior-driven development framework for testing JavaScript code</li>
+							<li>Doesn't require DOM, can be used serverside or in the browser</li>
+							<li>Obvious syntax</li>
+							<li>Easy to write tests</li>
+							<li>Async Support</li>
+							<li>Continuous Integration</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Jasmine</h3>
+							```
+							Install jasmine globaly
+							> npm install -g jasmine
+
+							Install jasmine plugin for Grunt/Gulp
+							> npm i grunt-jasmine-runner --save-dev
+							> npm install gulp-jasmine --save-dev
+
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Basics</h3>
+							```
+							describe("Test suite", function() {
+  it("contains spec with an expectation", function() {
+    expect(true).toBe(true);
+  });
+});
+
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Jasmine Usage with Gulp</h3>
+							```
+							var gulp = require('gulp');
+var jasmine = require('gulp-jasmine');
+ 
+gulp.task('default', function () {
+    return gulp.src('spec/test.js')
+        .pipe(jasmine());
+});
+> gulp
+							```
+						</script>
+					</section>
+					<section>
+							<h3>Available Matchers</h3>
+							<ul>
+								<li>toBe()</li>
+								<li>toEqual()</li>
+								<li>toMatch()</li>
+								<li>toBeDefined()</li>
+								<li>toBeUndefined()</li>
+								<li>toBeNull()</li>
+								<li>toBeTruthy()</li>
+								<li>toBeFalsy()</li>
+								<li>toContain()</li>
+								<li>toBeLessThan()</li>
+								<li>toBeGreaterThan()</li>
+								<li>toBeCloseTo()</li>
+								<li>toThrow()</li>
+							</ul>
+							<p>Above matchers can be chained with the Not() function. e.g. not.toBe()</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Karma</h3>
+						<ul>
+							<li>Executes tests and source in a browser</li>
+							<li>Lots of plugins available</li>
+							<li>Can drive multiple browsers at once</li>
+							<li>Built in JUnit reporter</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Karma</h3>
+							```
+							Install Karma command line tool globaly
+							> npm install -g karma-cli
+
+							Install Karma in project
+							> npm install karma --save-dev
+
+							```
+							```
+							> karma init
+
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Karma Configuration</h3>
+							```
+							module.exports = function(config) {
+  config.set({
+
+    basePath: '',
+
+    frameworks: ['jasmine','browserify'],
+
+    files: ['test/spec/**/*Spec.coffee'],
+
+    preprocessors: {
+        'test/spec/**/*.coffee': ['coffee', 'browserify']
+    },
+
+    port: 9876,
+
+    browsers: ['Chrome', 'Firefox', 'PhantomJS']
+
+  });
+};
+
+							```
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Istanbul</h3>
+						<ul>
+							<li>Instrument your source code</li>
+							<li>Run your test suite against your instrumented source code</li>
+							<li>Store your coverage results</li>
+							<li>Allows you to generate coverage report</li>
+							<li>HTML and LCOV reporting</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install</h3>
+							```
+							> npm install istanbul
+
+							> npm install grunt-istanbul --save-dev
+
+							> npm install gulp-istanbul --save-dev 
+
+							```
+						</script>
+					</section>
+					<!-- <section data-markdown>
+						<script type="text/template">
+							<h3>Example</h3>
+							```
+							> sample
+
+							```
+						</script>
+					</section> -->
+				</section>
+
+				<section>
+					<section>
+						<h3>Protractor</h3>
+						<ul>
+							<li>AngularJS E2E Testing Framework</li>
+							<li>Built on Selenium's WebDriver API</li>
+							<li>Built on top of Jasmine framework</li>
+							<li>Extension for all browsers</li>
+							<li>Every action is asynchronous.</li>
+							<li>Rapid development.</li>
+							<li>Allows to test your app the way end user will use it.</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Install Protractor</h3>
+							```
+							Install protractor globally
+							> npm install protractor -g
+
+							Install protractor in your project using Grunt
+							> npm i grunt-protractor-runner --save-dev
+
+							Install protractor in your project using Gulp
+							> npm install gulp-protractor --save-dev
+
+							Scaffolding is available through YO as well
+							> npm install -g generator-protractor
+> yo protractor 
+
+							Update WebDriver
+							> webdriver-manager update
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Sample Configuration File</h3>
+							```
+							exports.config = {
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+  specs: ['spec.js'],
+  multiCapabilities: [{
+    browserName: 'firefox'
+  }, {
+    browserName: 'chrome'
+  }]
+}
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Sample spec.js</h3>
+							```
+							describe('angularjs homepage', function() {
+  var firstNumber = element(by.model('first'));
+  var secondNumber = element(by.model('second'));
+  var goButton = element(by.id('gobutton'));
+  var latestResult = element(by.binding('latest'));
+  var history = element.all(by.repeater('result in memory'));
+
+  function add(a, b) {
+    firstNumber.sendKeys(a);
+    secondNumber.sendKeys(b);
+    goButton.click();
+  }
+
+  beforeEach(function() {
+    browser.get('http://juliemr.github.io/protractor-demo/');
+  });
+
+it('should have a history', function() {
+    add(1, 2);
+    add(3, 4);
+
+    expect(history.last().getText()).toContain('1 + 2');
+    expect(history.first().getText()).toContain('3 + 4');
+  });
+});
+							```
+
+							<h6>Execute e2e Test</h6>
+							```
+							> webdriver-manager start
+
+							> protractor <path to conf file>
+							```
+						</script>
+					</section>
+					<section>
+						<h3>Protractor Api</h3>
+						<table>
+							<tr>
+								<td>
+									<h3>Selectors</h3>
+									<ul>
+										<li>by class name</li>
+										<li>by css</li>
+										<li>by id</li>
+										<li>by linkText</li>
+										<li>by partialLinktext</li>
+										<li>by name</li>
+										<li>by xpath</li>
+										<li>by binding</li>
+										<li>by input</li>
+										<li>by repeater</li>
+										<li>by model</li>
+									</ul>
+								</td>
+								<td>
+									<h3>Methods</h3>
+									<ul>
+										<li>clear()</li>
+										<li>click()</li>
+										<li>getAttribute(name)</li>
+										<li>getCSSValue(propertyName)</li>
+										<li>getLocation()</li>
+										<li>getSize()</li>
+										<li>getTagName()</li>
+										<li>getText()</li>
+										<li>isDisplayed()</li>
+										<li>isEnabled()</li>
+										<li>isSelected()</li>
+										<li>sendKeys(keysToSend)</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<section>
+					<h3>Choosing workflow automation tool</h3>
+					<ul>
+						<!-- <li>If you need tons of plugins, stick with Grunt or Gulp</li>
+						<li>If you need utter speed, go with Gulp</li>
+						<li>If you want conventions, go with Brunch</li>
+						<li>If you're an Ember fan, go with Broccoli (tied into Ember CLI)</li> -->
+						<li>No tool is wrong, just different approaches</li>
+						<li>Each tool has strengths and weaknesses.</li>
+						<li>Your job will be to identify which tool may be best suited for your needs.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Resources</h3>
+					<ul>
+						<li><a href="https://nodejs.org" target="_blank">nodeJS</a></li>
+						<li><a href="https://www.npmjs.com" target="_blank">npm</a></li>
+						<li><a href="http://bower.io" target="_blank">Bower</a></li>
+						<li><a href="http://yeoman.io" target="_blank">Yemon (YO)</a></li>
+						<li><a href="http://gulpjs.com" target="_blank">Gulp</a></li>
+						<li><a href="http://gruntjs.com" target="_blank">Grunt</a></li>
+						<li><a href="http://brunch.io" target="_blank">Brunch</a></li>
+						<li><a href="https://github.com/broccolijs/broccoli" target="_blank">Broccoli</a></li>
+						<li><a href="https://gist.github.com/callumacrae/9231589" target="_blank">List of JavaScript Build Tools</a></li>
+						<li><a href="http://jasmine.github.io" target="_blank">Jasmine</a></li>
+						<li><a href="http://karma-runner.github.io/0.12/index.html" target="_blank">Karma</a></li>
+						<li><a href="https://github.com/gotwarlost/istanbul" target="_blank">Istanbul</a></li>
+						<li><a href="http://angular.github.io/protractor/#/" target="_blank">Protractor</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>Questions ? <small><a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small></h1>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
