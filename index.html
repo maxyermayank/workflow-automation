@@ -537,20 +537,20 @@ var paths = {
 	e2eSource: ['test/e2e/*.js'],
 
 	vendorScripts: [
-	         'node_modules/jquery/dist/jquery.min.js',
-	         'node_modules/bootstrap/dist/js/bootstrap.min.js',
-	         'node_modules/underscore/underscore-min.js',
-	         'node_modules/angular/angular.min.js',
-	         'node_modules/angular-resource/angular-resource.min.js',
-	         'node_modules/angular-animate/angular-animate.min.js',
-	         'node_modules/angular-messages/angular-messages.min.js',
-	         'node_modules/angular-sanitize/angular-sanitize.min.js',
-	         'node_modules/angular-aria/angular-aria.min.js'
+	         'bower_components/jquery/dist/jquery.min.js',
+	         'bower_components/bootstrap/dist/js/bootstrap.min.js',
+	         'bower_components/underscore/underscore-min.js',
+	         'bower_components/angular/angular.min.js',
+	         'bower_components/angular-resource/angular-resource.min.js',
+	         'bower_components/angular-animate/angular-animate.min.js',
+	         'bower_components/angular-messages/angular-messages.min.js',
+	         'bower_components/angular-sanitize/angular-sanitize.min.js',
+	         'bower_components/angular-aria/angular-aria.min.js'
     ],
     
     vendorStyles: [
-   	         'node_modules/bootstrap/dist/css/bootstrap.min.css',
-   	         'node_modules/bootstrap/font-awesome/css/font-awesome.min.css'
+   	         'bower_components/bootstrap/dist/css/bootstrap.min.css',
+   	         'bower_components/bootstrap/font-awesome/css/font-awesome.min.css'
    	]
 };
 
@@ -852,12 +852,23 @@ gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
 							<li>Provides caching for map files</li>
 							<li>Makes some conventions for you - assets</li>
 							<li>Watching files handled by serve, only rebuilds whats needed</li>
+							<li>Supported by trees that mirror filesystem</li>
+							<li>Lets you have a transactional-style build pipeline</li>
+							<li>Trees later in process can have more files than those previously</li>
+							<li>Can do operations on multiple generated trees</li>
+							<li>Can merge trees (output for ES5 from TypeScript & ES6 sources for example)</li>
+							<li>Incremental builds by default</li>
+							<li>Cacheing is built-in rather than manual</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Broccoli Weeknesses</h3>
 						<ul>
 							<li>No parallelism</li>
+							<li>Mainstream usage only in ember-cli (and even then only used as a lib, not as a tool itself)</li>
+							<li>Many rough edges - not forgiving for things off common path</li>
+							<li>Some implementation flaws (though fixable)</li>
+							<li>Some design decisions won’t scale from company to company, though it maps better to blaze (bazel) than does gulp</li>
 						</ul>
 					</section>
 					<section data-markdown>
