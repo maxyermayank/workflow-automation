@@ -49,7 +49,7 @@
 						<small>Created by <a href="http://maxyermayank.github.io">Mayank Patel</a> / <a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small>
 					</p>
 				</section>
-
+				
 				<section>
 					<h3>Why workflow automation?</h3>
 					<table>
@@ -76,6 +76,9 @@
 							</td>
 						</tr>
 					</table>
+				</section>
+				
+				<section data-background="images/disg_kfdj897.gif" data-background-size="cover">
 				</section>
 
 				<section>
@@ -131,7 +134,10 @@
 						</table>
 					</div>
 				</section>
-
+				
+				<section data-background="images/tumblr_mtz4clyDQV1svdumlo1_400.gif">
+				</section>
+				
 				<section>
 					<h3>Dependency Management Tools</h3>
 					<p>Downloads dependencies using Git, HTTPS, ZIP, npm</p>
@@ -141,9 +147,11 @@
 							<li>Bower</li>
 						</ul>
 					</p>
+					<img data-src="images/npm_bower.jpg" width="400px">
 				</section>
 				<section data-background="#CD3732">
 					<section>
+						<img data-src="images/npm.png" data-background-size="300px">
 						<h3>NPM</h3>
 						<p>
 							<ul>
@@ -226,9 +234,13 @@
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
 				<section data-background="#FFCC30">
-					<section> <!-- data-background="images/bower-logo.png" data-background-size="100" -->
+					<section> 
+						<img data-src="images/bower-logo.png" width="300px">
 						<h3>Bower</h3>
 						<p>
 							<ul>
@@ -292,11 +304,15 @@
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
 
 				<section data-background="#59ADBB">
 					<section data-markdown>
 						<script type="text/template">
+							<img data-src="images/yeoman.png" width="300px">
 							<h3>Scaffolding Tool / Generator</h3>
 							<h4>Yemon (YO)</h4>
 							<p>
@@ -363,10 +379,22 @@
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
+				
+				<section data-background="images/eW9qBJz.gif" data-background-size="1000px">
+				</section>
+				
+				<section data-background="images/g0O97H2.gif">
+					<h3>Build Tool</h3>
+				</section>
+				
 				<!-- Example of nested vertical slides -->
 				<section data-background="#CF4645">
 					<section>
+						<img data-src="images/Gulpjs.png" width="200px">
 						<h3>Gulp Strength</h3>
 						<ul>
 							<li>Mature: ~ Aug 2013, relatively mature</li>
@@ -723,9 +751,13 @@ gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
 				<section data-background="#FBA918">
 					<section>
+						<img data-src="images/grunt.jpg" width="300px">
 						<h3>Grunt Strength</h3>
 						<ul>
 							<li>Mature: Mar 2012, very mature</li>
@@ -786,6 +818,9 @@ gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 
 					<!-- <section data-markdown>
 						<script type="text/template">
@@ -799,6 +834,7 @@ gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
 				</section>
 				<section data-background="#3F894A">
 					<section>
+						<img data-src="images/brunch-logo-napkin.png" width="300px">
 						<h3>Brunch</h3>
 						<ul>
 							<li>Mature: Jan 2011, very mature</li>
@@ -841,9 +877,28 @@ gulp.task('default', ['clean', 'build', 'test', 'serve']);//, 'e2eTest'
 							```
 						</script>
 					</section> -->
+					<section data-markdown>
+						<script type="text/template">
+							<h3>Demo time</h3>
+							```
+							//Create new skeleton of angular app
+brunch new https://github.com/scotch/angular-brunch-seed myapp
+
+//Install bower packages (css/js/etc)
+bower install
+
+//tell Brunch to watch your project and incrementally rebuild it when source files are changed
+brunch watch --server
+
+//builds a project for distribution. By default it enables minification
+brunch build --production
+							```
+						</script>
+					</section>
 				</section>
 				<section data-background="#5A8527">
 					<section>
+						<img data-src="images/broccoli-logo.png" width="100px">
 						<h3>Broccoli</h3>
 						<ul>
 							<li>Mature: Feb 2014, still in beta</li>
@@ -937,7 +992,15 @@ module.exports = mergeTrees([app.toTree(), bootstrapTree]);
 							```
 						</script>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
+				
+				<section data-background="images/bruce-willis-just-checking-eccbc87e4b5ce2fe28308fd9f2a7baf3-205.gif">
+					<h3>Test Coverage</h3>
+				</section>
+				
 				<section>
 					<h3>Test Frameworks</h3>
 					<ul>
@@ -949,6 +1012,7 @@ module.exports = mergeTrees([app.toTree(), bootstrapTree]);
 				</section>
 				<section>
 					<section>
+						<img data-src="images/jasmine.png" width="250px">
 						<h3>Jasmine</h3>
 						<ul>
 							<li>Started in 2010</li>
@@ -1026,6 +1090,7 @@ gulp.task('default', function () {
 
 				<section>
 					<section>
+						<img data-src="images/karma.png" width="300px">
 						<h3>Karma</h3>
 						<ul>
 							<li>Executes tests and source in a browser</li>
@@ -1117,6 +1182,7 @@ gulp.task('default', function () {
 
 				<section>
 					<section>
+						<img data-src="images/protractor.png" width="300px">
 						<h3>Protractor</h3>
 						<ul>
 							<li>AngularJS E2E Testing Framework</li>
@@ -1245,7 +1311,11 @@ it('should have a history', function() {
 							</tr>
 						</table>
 					</section>
+					<section>
+						<h3>Demo time</h3>
+					</section>
 				</section>
+				
 				<section>
 					<h3>Choosing workflow automation tool</h3>
 					<ul>
@@ -1258,7 +1328,36 @@ it('should have a history', function() {
 						<li>Your job will be to identify which tool may be best suited for your needs.</li>
 					</ul>
 				</section>
-
+				
+				<section>
+					<h3>Developer tools</h3>
+					<ul>
+						<li><a href="https://developer.chrome.com/devtools" target="_blank">Chrom Dev Tools</a></li>
+						<li>Synchronized cross-device testing 
+							<ul>
+								<li><a href="https://github.com/viljamis/Remote-Preview" target="_blank">Remote Preview</a></li>
+								<li><a href="https://creative.adobe.com/products/inspect" target="_blank">Adobe Edge Inspect</a></li>
+								<li><a href="http://vanamco.com/ghostlab/" target="_blank">Ghost Lab</a></li>
+							</ul>
+						</li>
+						<li><a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank">Live Reload</a></li>
+						<li><a href="http://nshipster.com/network-link-conditioner/" target="_blank">Network Link conditioner</a></li>
+						<li><a href="http://slowyapp.com" target="_blank">Slowy app</a></li>
+						<li><a href="http://www.telerik.com/fiddler" target="_blank">Fiddler</a></li>
+						<li>Simulators & Emulators</li>
+						<li><a href="http://opendevicelab.com" target="_blank">Opendevicelab.com</a></li>
+						
+						<li>Automated testing in the cloud for CI 
+							<ul>
+								<li><a href="https://saucelabs.com" target="_blank">Sauce Labs</a></li>
+								<li><a href="https://www.browserstack.com" target="_blank">BrowserStack</a></li>
+								<li><a href="https://www.browserling.com" target="_blank">Browserling</a></li>
+							</ul>
+						</li>
+						<li><a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh" target="_blank"><h2>WAVE (Web Accessibility Evaluation Tool)</h2></a></li>
+					</ul>
+				</section>
+				
 				<section>
 					<h3>Resources</h3>
 					<ul>
@@ -1277,9 +1376,12 @@ it('should have a history', function() {
 						<li><a href="http://angular.github.io/protractor/#/" target="_blank">Protractor</a></li>
 					</ul>
 				</section>
+				
+				<section data-background="images/tumblr_mc9kexGUQg1ro8ysbo1_50028.gif">
+				</section>
 
 				<section style="text-align: left;">
-					<h1>Questions ? <small><a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small></h1>
+					<h1>Thank You <small><a href="https://twitter.com/maxy_ermayank">@maxy_ermayank</a></small></h1>
 				</section>
 
 			</div>
